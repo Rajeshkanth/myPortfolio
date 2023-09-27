@@ -1,826 +1,854 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rajeshkanth</title>
     <style>
-        * {
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        border: 0;
+        outline: 0;
+        scroll-behavior: smooth;
+        font-family: "poppins", sans-serif;
+      }
 
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            text-decoration: none;
-            border: 0;
-            outline: 0;
-            scroll-behavior: smooth;
-            font-family: 'poppins', sans-serif;
+      :root {
+        /* --bg-color: #1f242d; */
+        --bg-color: #00005c;
+        /* --second-bg-color: #323946; */
+        --second-bg-color: #00008c;
+        --text-color: #fff;
+        /* --main-color: #0ef; */
+        --main-color: #3dec9a;
+      }
+
+      html {
+        font-size: 62.5%;
+        overflow-x: hidden;
+      }
+
+      body {
+        background: var(--bg-color);
+        color: var(--text-color);
+        display: flex;
+        flex-direction: column;
+      }
+
+      section {
+        min-height: 100vh;
+        padding: 10rem 9% 2rem;
+        /* display: flex; */
+        justify-content: space-between;
+      }
+
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 2rem 9%;
+        background: var(--bg-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+      }
+
+      .header.sticky {
+        border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2);
+      }
+
+      .pf {
+        color: var(--text-color);
+        font-size: 2.5rem;
+        font-weight: 600;
+        /* cursor: default; */
+      }
+
+      .navbar a {
+        color: var(--text-color);
+        font-size: 1.5rem;
+        margin-left: 4rem;
+        transition: 0.3s linear;
+      }
+
+      .navbar a:hover,
+      .navbar a:active {
+        color: var(--main-color);
+      }
+
+      #menu {
+        font-size: 3.6rem;
+        color: var(--text-color);
+        display: none;
+      }
+
+      .home {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .home-img img {
+        width: 30vw;
+        border-radius: 25px;
+        animation: floatImage 4s ease-in-out infinite;
+      }
+
+      @keyframes floatImage {
+        0% {
+          transform: translateY(0);
         }
 
-        :root {
-            /* --bg-color: #1f242d; */
-            --bg-color: #00005c;
-            /* --second-bg-color: #323946; */
-            --second-bg-color: #00008c;
-            --text-color: #fff;
-            /* --main-color: #0ef; */
-            --main-color: #3dec9a;
+        50% {
+          transform: translateY(-2.4rem);
         }
 
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      .home-content h3 {
+        font-size: 3.2rem;
+        font-weight: 700;
+      }
+
+      .home-content h3:nth-of-type(2) {
+        margin-bottom: 2rem;
+      }
+
+      span {
+        color: var(--main-color);
+      }
+
+      .home-content h1 {
+        font-size: 5.6rem;
+        font-weight: 700;
+        line-height: 1.3;
+      }
+
+      .home-content p {
+        font-size: 1.6rem;
+      }
+
+      .social-media a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 4rem;
+        height: 4rem;
+        background: transparent;
+        border: 0.2rem solid var(--main-color);
+        border-radius: 50%;
+        font-size: 2rem;
+        color: var(--main-color);
+        margin: 3rem 1.5rem 3rem 0;
+        transition: 0.5s ease;
+      }
+
+      .social-media a:hover {
+        background-color: var(--main-color);
+        color: var(--second-bg-color);
+        box-shadow: 0 0 1rem var(--main-color);
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 1rem 2.8rem;
+        background: var(--main-color);
+        border-radius: 4rem;
+        box-shadow: 0 0 1rem var(--main-color);
+        font-size: 1.6rem;
+        color: var(--second-bg-color);
+        letter-spacing: 0.1rem;
+        font-weight: 600;
+        transition: 0.5s ease;
+      }
+
+      .btn:hover {
+        box-shadow: none;
+      }
+
+      .about {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        background-color: var(--second-bg-color);
+      }
+
+      .about-img img {
+        width: 20vw;
+        border-radius: 20px;
+      }
+
+      .heading {
+        text-align: center;
+        font-size: 4.5rem;
+      }
+
+      .about-content h2 {
+        text-align: left;
+        line-height: 1.2;
+      }
+
+      .about-content h3 {
+        font-size: 2.6rem;
+      }
+
+      .about-content p {
+        font-size: 1.6rem;
+        margin: 2rem 0 3rem;
+      }
+
+      .accomplishments h2 {
+        margin-bottom: 5rem;
+      }
+
+      .acmp-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+
+      .accomplishments {
+        display: block;
+      }
+
+      .acmp-container .acmp-box {
+        flex: 1 1 30rem;
+        background-color: var(--second-bg-color);
+        padding: 3rem 2rem 4rem;
+        border-radius: 2rem;
+        text-align: center;
+        border: 0.2rem solid var(--bg-color);
+        transition: 0.5s ease;
+      }
+
+      .acmp-container .acmp-box:hover {
+        border-color: var(--main-color);
+        transform: scale(1.02);
+      }
+
+      .acmp-box i {
+        font-size: 7rem;
+        color: var(--main-color);
+      }
+
+      .acmp-box h3 {
+        font-size: 2.6rem;
+      }
+
+      .acmp-box p {
+        font-size: 1.6rem;
+        margin: 1rem 0 3rem;
+      }
+
+      .portfolio {
+        display: block;
+        background-color: var(--second-bg-color);
+      }
+
+      .portfolio-box img {
+        width: 25vw;
+        height: 65vh;
+      }
+
+      .portfolio h2 {
+        margin-bottom: 4rem;
+      }
+
+      .portfolio-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        gap: 2.5rem;
+      }
+
+      .portfolio-container .portfolio-box {
+        position: relative;
+        border-radius: 2rem;
+        box-shadow: 0 0 1rem var(--bg-color);
+        overflow: hidden;
+        display: flex;
+      }
+
+      .portfolio-box img {
+        width: 100%;
+        transition: 0.5s ease;
+      }
+
+      .portfolio-box:hover img {
+        transform: scale(1.1);
+      }
+
+      .portfolio-box .portfolio-layer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.1), var(--main-color));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 4rem;
+        transform: translateY(100%);
+        transition: 0.5s ease;
+      }
+
+      .portfolio-box:hover .portfolio-layer {
+        transform: translateY(0);
+      }
+
+      .portfolio-layer h4 {
+        font-size: 2.5rem;
+      }
+
+      .portfolio-layer p {
+        font-size: 1.6rem;
+        margin: 3rem 0 1rem;
+      }
+
+      .portfolio-layer a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 5rem;
+        height: 5rem;
+        background: var(--text-color);
+        border-radius: 50%;
+      }
+
+      .portfolio-layer a i {
+        font-size: 2rem;
+        color: var(--second-bg-color);
+      }
+
+      .contact h2 {
+        margin-bottom: 3rem;
+      }
+
+      .contact form {
+        max-width: 70rem;
+        margin: 1rem auto;
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .contact form .input-box {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .contact form .input-box input,
+      .contact form textarea {
+        width: 100%;
+        padding: 1.5rem;
+        font-size: 1.6rem;
+        color: var(--text-color);
+        background-color: var(--second-bg-color);
+        border-radius: 0.8rem;
+        margin: 0.7rem 0;
+      }
+
+      .contact form .input-box input {
+        width: 49%;
+      }
+
+      .contact form textarea {
+        resize: none;
+      }
+
+      .contact form .btn {
+        margin-top: 2rem;
+        cursor: pointer;
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 2rem 9%;
+        background: var(--second-bg-color);
+      }
+
+      .footer-text p {
+        font-size: 1.6rem;
+      }
+
+      .footer-iconTop a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.8rem;
+        background: var(--main-color);
+        border-radius: 0.8rem;
+        transition: 0.5s ease;
+      }
+
+      .footer-iconTop a:hover {
+        box-shadow: 0 0 1rem var(--main-color);
+        /* cursor: pointer; */
+      }
+
+      .footer-iconTop a i {
+        font-size: 2.4rem;
+        color: var(--second-bg-color);
+      }
+
+      #about-details {
+        display: none;
+      }
+
+      #about-details.visible {
+        display: block;
+      }
+
+      @media (max-width: 1200px) {
         html {
-            font-size: 62.5%;
-            overflow-x: hidden;
+          font-size: 55%;
         }
+      }
 
-        body {
-            background: var(--bg-color);
-            color: var(--text-color);
-            display: flex;
-            flex-direction: column;
+      @media (max-width: 991px) {
+        .header {
+          padding: 2rem 3%;
         }
 
         section {
-            min-height: 100vh;
-            padding: 10rem 9% 2rem;
-            /* display: flex; */
-            justify-content: space-between;
-        }
-
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 2rem 9%;
-            background: var(--bg-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-        }
-
-        .header.sticky {
-            border-bottom: .1rem solid rgba(0, 0, 0, .2);
-        }
-
-
-        .pf {
-            color: var(--text-color);
-            font-size: 2.5rem;
-            font-weight: 600;
-            /* cursor: default; */
-        }
-
-        .navbar a {
-            color: var(--text-color);
-            font-size: 1.5rem;
-            margin-left: 4rem;
-            transition: .3s linear;
-        }
-
-        .navbar a:hover,
-        .navbar a:active {
-            color: var(--main-color);
-
-        }
-
-        #menu {
-            font-size: 3.6rem;
-            color: var(--text-color);
-            display: none;
-        }
-
-        .home {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .home-img img {
-            width: 30vw;
-            border-radius: 25px;
-            animation: floatImage 4s ease-in-out infinite;
-        }
-
-        @keyframes floatImage {
-            0% {
-                transform: translateY(0)
-            }
-
-            50% {
-                transform: translateY(-2.4rem)
-            }
-
-            100% {
-                transform: translateY(0)
-            }
-        }
-
-        .home-content h3 {
-            font-size: 3.2rem;
-            font-weight: 700;
-        }
-
-        .home-content h3:nth-of-type(2) {
-            margin-bottom: 2rem;
-        }
-
-        span {
-            color: var(--main-color);
-        }
-
-        .home-content h1 {
-            font-size: 5.6rem;
-            font-weight: 700;
-            line-height: 1.3;
-        }
-
-        .home-content p {
-            font-size: 1.6rem;
-        }
-
-        .social-media a {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 4rem;
-            height: 4rem;
-            background: transparent;
-            border: .2rem solid var(--main-color);
-            border-radius: 50%;
-            font-size: 2rem;
-            color: var(--main-color);
-            margin: 3rem 1.5rem 3rem 0;
-            transition: .5s ease;
-        }
-
-        .social-media a:hover {
-            background-color: var(--main-color);
-            color: var(--second-bg-color);
-            box-shadow: 0 0 1rem var(--main-color);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.8rem;
-            background: var(--main-color);
-            border-radius: 4rem;
-            box-shadow: 0 0 1rem var(--main-color);
-            font-size: 1.6rem;
-            color: var(--second-bg-color);
-            letter-spacing: .1rem;
-            font-weight: 600;
-            transition: .5s ease;
-        }
-
-        .btn:hover {
-            box-shadow: none;
-        }
-
-        .about {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-            background-color: var(--second-bg-color);
-        }
-
-        .about-img img {
-            width: 20vw;
-            border-radius: 20px;
-        }
-
-        .heading {
-            text-align: center;
-            font-size: 4.5rem;
-        }
-
-        .about-content h2 {
-            text-align: left;
-            line-height: 1.2;
-        }
-
-        .about-content h3 {
-            font-size: 2.6rem;
-        }
-
-        .about-content p {
-            font-size: 1.6rem;
-            margin: 2rem 0 3rem;
-        }
-
-        .accomplishments h2 {
-            margin-bottom: 5rem;
-        }
-
-        .acmp-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
+          padding: 10rem 3% 2rem;
         }
 
         .accomplishments {
-            display: block;
-        }
-
-        .acmp-container .acmp-box {
-            flex: 1 1 30rem;
-            background-color: var(--second-bg-color);
-            padding: 3rem 2rem 4rem;
-            border-radius: 2rem;
-            text-align: center;
-            border: .2rem solid var(--bg-color);
-            transition: .5s ease;
-        }
-
-        .acmp-container .acmp-box:hover {
-            border-color: var(--main-color);
-            transform: scale(1.02);
-        }
-
-        .acmp-box i {
-            font-size: 7rem;
-            color: var(--main-color);
-        }
-
-        .acmp-box h3 {
-            font-size: 2.6rem;
-        }
-
-        .acmp-box p {
-            font-size: 1.6rem;
-            margin: 1rem 0 3rem;
+          padding-bottom: 7rem;
         }
 
         .portfolio {
-            display: block;
-            background-color: var(--second-bg-color);
+          padding-bottom: 7rem;
         }
 
-        .portfolio-box img {
-            width: 25vw;
-            height: 65vh;
-        }
-
-        .portfolio h2 {
-            margin-bottom: 4rem;
-        }
-
-        .portfolio-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            align-items: center;
-            gap: 2.5rem;
-        }
-
-        .portfolio-container .portfolio-box {
-            position: relative;
-            border-radius: 2rem;
-            box-shadow: 0 0 1rem var(--bg-color);
-            overflow: hidden;
-            display: flex;
-        }
-
-        .portfolio-box img {
-            width: 100%;
-            transition: .5s ease;
-        }
-
-        .portfolio-box:hover img {
-            transform: scale(1.1);
-        }
-
-        .portfolio-box .portfolio-layer {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, .1), var(--main-color));
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 4rem;
-            transform: translateY(100%);
-            transition: .5s ease;
-        }
-
-        .portfolio-box:hover .portfolio-layer {
-            transform: translateY(0);
-        }
-
-        .portfolio-layer h4 {
-            font-size: 2.5rem;
-        }
-
-        .portfolio-layer p {
-            font-size: 1.6rem;
-            margin: 3rem 0 1rem;
-        }
-
-        .portfolio-layer a {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 5rem;
-            height: 5rem;
-            background: var(--text-color);
-            border-radius: 50%;
-        }
-
-        .portfolio-layer a i {
-            font-size: 2rem;
-            color: var(--second-bg-color);
-        }
-
-        .contact h2 {
-            margin-bottom: 3rem;
-        }
-
-        .contact form {
-            max-width: 70rem;
-            margin: 1rem auto;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .contact form .input-box {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .contact form .input-box input,
-        .contact form textarea {
-            width: 100%;
-            padding: 1.5rem;
-            font-size: 1.6rem;
-            color: var(--text-color);
-            background-color: var(--second-bg-color);
-            border-radius: .8rem;
-            margin: .7rem 0;
-        }
-
-        .contact form .input-box input {
-            width: 49%;
-        }
-
-        .contact form textarea {
-            resize: none;
-        }
-
-        .contact form .btn {
-            margin-top: 2rem;
-            cursor: pointer;
+        .contact {
+          min-height: auto;
         }
 
         .footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            padding: 2rem 9%;
-            background: var(--second-bg-color);
+          padding: 2rem 3%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        #menu {
+          display: block;
         }
 
-        .footer-text p {
-            font-size: 1.6rem;
+        .navbar {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          padding: 1rem 3%;
+          background-color: var(--bg-color);
+          border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+          display: none;
         }
 
-        .footer-iconTop a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: .8rem;
-            background: var(--main-color);
-            border-radius: .8rem;
-            transition: .5s ease;
+        .navbar.active {
+          display: block;
         }
 
-        .footer-iconTop a:hover {
-            box-shadow: 0 0 1rem var(--main-color);
-            /* cursor: pointer; */
+        .navbar a {
+          display: block;
+          font-size: 2rem;
+          margin: 3rem 0;
         }
 
-        .footer-iconTop a i {
-            font-size: 2.4rem;
-            color: var(--second-bg-color);
+        .home {
+          flex-direction: column;
         }
 
-        #about-details {
-            display: none;
+        .home-content h3 {
+          font-size: 2.6rem;
         }
 
-        #about-details.visible {
-            display: block;
+        .home-content h1 {
+          font-size: 5rem;
         }
 
-        @media (max-width:1200px) {
-            html {
-                font-size: 55%;
-            }
+        .home-img img {
+          width: 60vw;
+          margin-top: 4rem;
         }
 
-        @media (max-width:991px) {
-            .header {
-                padding: 2rem 3%;
-            }
-
-            section {
-                padding: 10rem 3% 2rem;
-            }
-
-            .accomplishments {
-                padding-bottom: 7rem;
-            }
-
-            .portfolio {
-                padding-bottom: 7rem;
-            }
-
-            .contact {
-                min-height: auto;
-            }
-
-            .footer {
-                padding: 2rem 3%;
-            }
+        .about {
+          flex-direction: column-reverse;
         }
 
-        @media (max-width:768px) {
-            #menu {
-                display: block;
-            }
-
-            .navbar {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                padding: 1rem 3%;
-                background-color: var(--bg-color);
-                border-top: .1rem solid rgba(0, 0, 0, .2);
-                box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
-                display: none;
-            }
-
-            .navbar.active {
-                display: block;
-            }
-
-            .navbar a {
-                display: block;
-                font-size: 2rem;
-                margin: 3rem 0;
-            }
-
-            .home {
-                flex-direction: column;
-            }
-
-            .home-content h3 {
-                font-size: 2.6rem;
-            }
-
-            .home-content h1 {
-                font-size: 5rem;
-            }
-
-            .home-img img {
-                width: 60vw;
-                margin-top: 4rem;
-            }
-
-            .about {
-                flex-direction: column-reverse;
-            }
-
-            .about-img img {
-                width: 60vw;
-                margin-top: 4rem;
-            }
-
-            .accomplishments h2 {
-                margin-bottom: 3rem;
-            }
-
-            .portfolio h2 {
-                margin-bottom: 3rem;
-            }
-
-            .portfolio-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .about-img img {
+          width: 60vw;
+          margin-top: 4rem;
         }
 
-        @media (max-width:617px) {
-            .portfolio-container {
-                grid-template-columns: 1fr;
-            }
+        .accomplishments h2 {
+          margin-bottom: 3rem;
         }
 
-        @media (max-width:450px) {
-            html {
-                font-size: 50%;
-            }
-
-            .contact form .input-box input {
-                width: 100%;
-            }
+        .portfolio h2 {
+          margin-bottom: 3rem;
         }
 
-        @media (max-width:365px) {
-            .home-img img {
-                width: 80vw;
-            }
-
-            .about-img img {
-                width: 80vw;
-            }
-
-            .footer {
-                flex-direction: column-reverse;
-            }
-
-            .footer p {
-                text-align: center;
-                margin-top: 2rem;
-            }
+        .portfolio-container {
+          grid-template-columns: repeat(2, 1fr);
         }
+      }
+
+      @media (max-width: 617px) {
+        .portfolio-container {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 450px) {
+        html {
+          font-size: 50%;
+        }
+
+        .contact form .input-box input {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 365px) {
+        .home-img img {
+          width: 80vw;
+        }
+
+        .about-img img {
+          width: 80vw;
+        }
+
+        .footer {
+          flex-direction: column-reverse;
+        }
+
+        .footer p {
+          text-align: center;
+          margin-top: 2rem;
+        }
+      }
     </style>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css" />
     <!-- box design -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="./example.html">
-</head>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./example.html" />
+  </head>
 
-<body>
+  <body>
     <header class="header">
-        <a href="#" class="pf">Portfolio</a>
+      <a href="#" class="pf">Portfolio</a>
 
-        <i class='bx bx-menu-alt-right' id="menu"></i>
-        <nav class="navbar">
-            <a href="#home" class="active">Home</a>
-            <a href="#about">About</a>
-            <a href="#accomplishments">Skills</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#contact">Contact</a>
-
-        </nav>
+      <i class="bx bx-menu-alt-right" id="menu"></i>
+      <nav class="navbar">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#accomplishments">Skills</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </header>
 
-
     <section class="home" id="home">
-        <div class="home-content">
-            <h3>Hello, It's Me</h3>
-            <h1>Rajeshkanth</h1>
-            <h3>And I'm a <span class="multiple-text"></span></h3>
-            <p>I'm a Java Full Stack Developer, who is having strong knowledge in <strong> HTML,CSS,JavaScript </strong>
-                with <strong> React.js </strong>
-                framework for the frontend, <strong>Java</strong> for the backend, <strong>MySQL</strong> for the
-                database, And <strong>GIT</strong> for version control. </p>
-            <div class="social-media">
-                <a href="#" class="bx bxl-facebook"></a>
-                <a href="#" class="bx bxl-twitter"></a>
-                <a href="#" class="bx bxl-instagram-alt"></a>
-                <a href="#" class="bx bxl-linkedin"></a>
-            </div>
-            <a href="#" class="btn">Download CV</a>
+      <div class="home-content">
+        <h3>Hello, It's Me</h3>
+        <h1>Rajeshkanth</h1>
+        <h3>And I'm a <span class="multiple-text"></span></h3>
+        <p>
+          I'm a Java Full Stack Developer, who is having strong knowledge in
+          <strong> HTML,CSS,JavaScript </strong> with
+          <strong> React.js </strong> framework for the frontend,
+          <strong>Java</strong> for the backend, <strong>MySQL</strong> for the
+          database, And <strong>GIT</strong> for version control.
+        </p>
+        <div class="social-media">
+          <a href="#" class="bx bxl-facebook"></a>
+          <a href="#" class="bx bxl-twitter"></a>
+          <a href="#" class="bx bxl-instagram-alt"></a>
+          <a href="#" class="bx bxl-linkedin"></a>
         </div>
-        <div class="home-img">
-            <!-- <img src="./images/0038-min-min.jpeg" alt=""> -->
-            <img src="./images/new.jpg" alt="">
-        </div>
+        <a href="#" class="btn">Download CV</a>
+      </div>
+      <div class="home-img">
+        <!-- <img src="./images/0038-min-min.jpeg" alt=""> -->
+        <img src="./images/new.jpg" alt="" />
+      </div>
     </section>
 
-
     <section class="about" id="about">
-        <div class="about-img">
-            <img src="./images/0038-min-min.jpeg" alt="">
-        </div>
-        <div class="about-content">
-            <h2 class="heading">About <span>Me</span></h2>
-            <h3>Frontend Developer</h3>
-            <p>Hello,
-
-                I'm excited to introduce myself as a Java Full Stack Developer with a specialization in React framework
-                and proficiency in Git for version control. Despite being a fresher, I've had the opportunity to work on
-                a variety of projects that have honed my skills and passion for software development.</p>
-            <p id="about-details"> My journey in the world of programming began with a deep fascination for building
-                web applications that
-                are not only functional but also user-friendly. During my academic years, I dedicated myself to learning
-                the ins and outs of Java and the React framework, with a focus on creating dynamic and responsive user
-                interfaces.
-
-                One of the projects I'm particularly proud of is my work on a Phishing URL Detection tool. This project
-                required me to implement complex algorithms and data analysis techniques to identify and flag
-                potentially malicious URLs, enhancing online security. I gained valuable experience in data handling,
-                security protocols, and real-world problem-solving while working on this project.
-
-                In addition to that, I've also developed an E-commerce website from scratch, which involved designing
-                and implementing the front-end using React and building a robust back-end in Java. This project allowed
-                me to apply my knowledge in creating visually appealing and feature-rich web applications.
-
-                Furthermore, I have experience in designing and implementing a user-friendly Login/Signup page, which is
-                a fundamental component of many web applications. This project showcased my ability to create seamless
-                and secure user authentication systems.
-
-                My commitment to producing high-quality code and continuous learning drives me to stay updated with the
-                latest industry trends and best practices. I'm enthusiastic about joining a team where I can contribute
-                my skills and knowledge while further developing as a Java Full Stack Developer. I'm confident that my
-                passion, dedication, and willingness to learn will make me a valuable asset to any project or
-                organization.
-
-                Thank you for considering my application. I look forward to the opportunity to discuss how I can
-                contribute to your team and contribute to the success of your projects.</p>
-            <a href="#about-details" class="btn" id="read-more">Read More</a>
-        </div>
-
+      <div class="about-img">
+        <img src="./images/0038-min-min.jpeg" alt="" />
+      </div>
+      <div class="about-content">
+        <h2 class="heading">About <span>Me</span></h2>
+        <h3>Frontend Developer</h3>
+        <p>
+          Hello, I'm excited to introduce myself as a Java Full Stack Developer
+          with a specialization in React framework and proficiency in Git for
+          version control. Despite being a fresher, I've had the opportunity to
+          work on a variety of projects that have honed my skills and passion
+          for software development.
+        </p>
+        <p id="about-details">
+          My journey in the world of programming began with a deep fascination
+          for building web applications that are not only functional but also
+          user-friendly. During my academic years, I dedicated myself to
+          learning the ins and outs of Java and the React framework, with a
+          focus on creating dynamic and responsive user interfaces. One of the
+          projects I'm particularly proud of is my work on a Phishing URL
+          Detection tool. This project required me to implement complex
+          algorithms and data analysis techniques to identify and flag
+          potentially malicious URLs, enhancing online security. I gained
+          valuable experience in data handling, security protocols, and
+          real-world problem-solving while working on this project. In addition
+          to that, I've also developed an E-commerce website from scratch, which
+          involved designing and implementing the front-end using React and
+          building a robust back-end in Java. This project allowed me to apply
+          my knowledge in creating visually appealing and feature-rich web
+          applications. Furthermore, I have experience in designing and
+          implementing a user-friendly Login/Signup page, which is a fundamental
+          component of many web applications. This project showcased my ability
+          to create seamless and secure user authentication systems. My
+          commitment to producing high-quality code and continuous learning
+          drives me to stay updated with the latest industry trends and best
+          practices. I'm enthusiastic about joining a team where I can
+          contribute my skills and knowledge while further developing as a Java
+          Full Stack Developer. I'm confident that my passion, dedication, and
+          willingness to learn will make me a valuable asset to any project or
+          organization. Thank you for considering my application. I look forward
+          to the opportunity to discuss how I can contribute to your team and
+          contribute to the success of your projects.
+        </p>
+        <a href="#about-details" class="btn" id="read-more">Read More</a>
+      </div>
     </section>
     <!-- --------------------------------------------------- -->
 
     <section class="accomplishments" id="accomplishments">
-        <h2 class="heading">My <span>Skills</span> </h2>
-        <div class="acmp-container">
-            <div class="acmp-box">
-                <i class="bx bx-code-alt"></i>
-                <h3>Frontend development</h3>
-                <p>I completed frontend development course in Besant Technologies, And gained lots of knowledge about
-                    frontend development environment. I did a E-Commerce website for my frontend project which can
-                    supports all type of device platforms.</p>
+      <h2 class="heading">My <span>Skills</span></h2>
+      <div class="acmp-container">
+        <div class="acmp-box">
+          <i class="bx bx-code-alt"></i>
+          <h3>Frontend development</h3>
+          <p>
+            I completed frontend development course in Besant Technologies, And
+            gained lots of knowledge about frontend development environment. I
+            did a E-Commerce website for my frontend project which can supports
+            all type of device platforms.
+          </p>
 
-                <a href="#" class="btn">Read More</a>
+          <a href="#" class="btn">Read More</a>
+        </div>
+        <div class="acmp-box">
+          <i class="bx bx-code-alt"></i>
+          <h3>Backend Development</h3>
+          <p>
+            I completed Java course in Besant Technologies, where i gained lots
+            of knowledge about backend environment. I created user login page.
+            Using postgreSQL database is created and joined the database to
+            backend using jdbc driver.
+          </p>
+          <a href="#" class="btn">Read More</a>
+        </div>
+        <div class="acmp-box">
+          <i class="bx bx-code-alt"></i>
+          <h3>Database</h3>
+          <p>
+            I have knowledge in MySQL, postgreSQL for structured querry
+            language, using postgreSQL i created and maintained a database for
+            user's informations about login details.Also, I did a Project for
+            MySQL to do CRUD operations in web page.
+          </p>
 
-            </div>
-            <div class="acmp-box">
-                <i class="bx bx-code-alt"></i>
-                <h3>Backend Development</h3>
-                <p>I completed Java course in Besant Technologies, where i
-                    gained lots of knowledge about backend environment. I created user login page. Using postgreSQL
-                    database is created and joined the database to backend using jdbc driver.</p>
-                <a href="#" class="btn">Read More</a>
-            </div>
-            <div class="acmp-box">
-                <i class="bx bx-code-alt"></i>
-                <h3>Database</h3>
-                <p>I have knowledge in MySQL, postgreSQL for structured querry language, using postgreSQL i created and
-                    maintained a database for user's informations about login details.Also, I did a Project for MySQL to
-                    do CRUD operations in web page.
-                </p>
-
-                <a href="#" class="btn">Read More</a>
-
-            </div>
+          <a href="#" class="btn">Read More</a>
+        </div>
+      </div>
     </section>
     <!--                ------------------              -->
 
     <section class="portfolio" id="portfolio">
-        <h2 class="heading">Latest <span>Projects</span></h2>
+      <h2 class="heading">Latest <span>Projects</span></h2>
 
-        <div class="portfolio-container">
-            <div class="portfolio-box">
-                <img src="./images/what-phishing-sites-look-like-study.png" alt="">
-                <div class="portfolio-layer">
-                    <h4>Phishing URL Detection using DL</h4>
-                    <p>This is done by hackers who are managed to create a fake url
-                        that looks like a legitmate one and sents to the victim, after clicking the link and entering
-                        your credentials in it will allow the hacker to get all the informations that user provided
-                        above. Our objective is to find that recieved link is legitmate or not using Deep Learning.
-                    </p>
-                    <a href="#"><i class="bx bx-link-external"></i></a>
-                </div>
-            </div>
+      <div class="portfolio-container">
+        <div class="portfolio-box">
+          <img src="./images/what-phishing-sites-look-like-study.png" alt="" />
+          <div class="portfolio-layer">
+            <h4>Phishing URL Detection using DL</h4>
+            <p>
+              This is done by hackers who are managed to create a fake url that
+              looks like a legitmate one and sents to the victim, after clicking
+              the link and entering your credentials in it will allow the hacker
+              to get all the informations that user provided above. Our
+              objective is to find that recieved link is legitmate or not using
+              Deep Learning.
+            </p>
+            <a href="#"><i class="bx bx-link-external"></i></a>
+          </div>
+        </div>
 
-            <div class="portfolio-box">
-                <img src="./images/1_s2ivh3kPT2KBpA-EsnngXA.jpg" alt="">
-                <div class="portfolio-layer">
-                    <h4>Car Resale value prediction using ADS</h4>
-                    <p>When someone wants to resale the used cars the buyer or seller can cheat with the price amount
-                        the car. To avoid that this website is used to check whether that car's condition is good or not
-                        and it will predict the price according to the car's condition.</p>
-                    <a href="#"><i class="bx bx-link-external"></i></a>
-                </div>
-            </div>
-            <div class="portfolio-box">
-                <img src="./images/website-user-login-page-template-design_1017-30786.avif" alt="">
-                <div class="portfolio-layer">
-                    <h4>E-Commerce Website</h4>
-                    <p>Created w3schools clone website and added a cart that can have the contents of course lists when
-                        user wants to add the item to the cart. It's fully responisve design that can be opened in
-                        various platforms such as mobiles,tablets,laptops.</p>
-                    <a href="#"><i class="bx bx-link-external"></i></a>
-                </div>
-            </div>
+        <div class="portfolio-box">
+          <img src="./images/1_s2ivh3kPT2KBpA-EsnngXA.jpg" alt="" />
+          <div class="portfolio-layer">
+            <h4>Car Resale value prediction using ADS</h4>
+            <p>
+              When someone wants to resale the used cars the buyer or seller can
+              cheat with the price amount the car. To avoid that this website is
+              used to check whether that car's condition is good or not and it
+              will predict the price according to the car's condition.
+            </p>
+            <a href="#"><i class="bx bx-link-external"></i></a>
+          </div>
         </div>
+        <div class="portfolio-box">
+          <img
+            src="./images/website-user-login-page-template-design_1017-30786.avif"
+            alt=""
+          />
+          <div class="portfolio-layer">
+            <h4>E-Commerce Website</h4>
+            <p>
+              Created w3schools clone website and added a cart that can have the
+              contents of course lists when user wants to add the item to the
+              cart. It's fully responisve design that can be opened in various
+              platforms such as mobiles,tablets,laptops.
+            </p>
+            <a href="#"><i class="bx bx-link-external"></i></a>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- contact -->
     <section class="contact" id="contact">
-        <h2 class="heading">Contact <span>Me!</span></h2>
-        <form action="#">
-            <div class="input-box">
-                <input type="text" placeholder="Full Name">
-                <input type="email" placeholder="Email Address">
-            </div>
-            <div class="input-box">
-                <input type="number" placeholder="Mobile Number">
-                <input type="text" placeholder="Email Subject">
-            </div>
-            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-            <input type="submit" value="Send Message" class="btn">
-        </form>
+      <h2 class="heading">Contact <span>Me!</span></h2>
+      <form action="#">
+        <div class="input-box">
+          <input type="text" placeholder="Full Name" />
+          <input type="email" placeholder="Email Address" />
+        </div>
+        <div class="input-box">
+          <input type="number" placeholder="Mobile Number" />
+          <input type="text" placeholder="Email Subject" />
+        </div>
+        <textarea
+          name=""
+          id=""
+          cols="30"
+          rows="10"
+          placeholder="Your Message"
+        ></textarea>
+        <input type="submit" value="Send Message" class="btn" />
+      </form>
     </section>
 
     <!-- footer -->
     <footer class="footer">
-        <div class="footer-text">
-            <p>Copyright &copy 2023 by Rocky | All rights reserved.</p>
-        </div>
-        <div class="footer-iconTop">
-            <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
-        </div>
+      <div class="footer-text">
+        <p>Copyright &copy 2023 by Rocky | All rights reserved.</p>
+      </div>
+      <div class="footer-iconTop">
+        <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
+      </div>
     </footer>
-
 
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script src=" ./script.js"></script>
     <script>
-        let menuIcon = document.querySelector('#menu');
-        let navBar = document.querySelector('.navbar');
-        menuIcon.onclick = () => {
-            menuIcon.classList.toggle('bx-x');
-            navBar.classList.toggle('active');
-        }
+      let menuIcon = document.querySelector("#menu");
+      let navBar = document.querySelector(".navbar");
+      menuIcon.onclick = () => {
+        menuIcon.classList.toggle("bx-x");
+        navBar.classList.toggle("active");
+      };
 
+      let sections = document.querySelectorAll("section");
+      let navLinks = document.querySelectorAll("header nav a");
 
-        let sections = document.querySelectorAll('section');
-        let navLinks = document.querySelectorAll('header nav a');
+      window.onscroll = () => {
+        sections.forEach((sec) => {
+          let top = window.scrollY;
+          let offset = sec.offsetTop - 150;
+          let height = sec.offsetHeight;
+          let id = sec.getAttribute("id");
 
-        window.onscroll = () => {
-            sections.forEach(sec => {
-                let top = window.scrollY;
-                let offset = sec.offsetTop - 150;
-                let height = sec.offsetHeight;
-                let id = sec.getAttribute('id');
-
-                if (top >= offset && top < offset + height) {
-                    navLinks.forEach(links => {
-                        links.classList.remove('active');
-                        document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
-                    });
-                };
+          if (top >= offset && top < offset + height) {
+            navLinks.forEach((links) => {
+              links.classList.remove("active");
+              document
+                .querySelector("header nav a[href*=" + id + "]")
+                .classList.add("active");
             });
-            let header = document.querySelector('header');
-            header.classList.toggle('sticky', window.scroll > 100);
-
-            menuIcon.classList.remove('bx-x');
-            navBar.classList.remove('active');
-        };
-        ScrollReveal({
-            reset: true,
-            distance: '80px',
-            duration: 2000,
-            delay: 200
+          }
         });
+        let header = document.querySelector("header");
+        header.classList.toggle("sticky", window.scroll > 100);
 
-        ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-        ScrollReveal().reveal('.home-img, .acmp-container, .portfolio-box, .contact form', { origin: 'bottom' });
-        ScrollReveal().reveal('.home-content h1 ,.about-img', { origin: 'left' });
-        ScrollReveal().reveal('.home-content p ,.about-content', { origin: 'right' });
+        menuIcon.classList.remove("bx-x");
+        navBar.classList.remove("active");
+      };
+      ScrollReveal({
+        reset: false,
+        distance: "80px",
+        duration: 2000,
+        delay: 200,
+      });
 
+      ScrollReveal().reveal(".home-content, .heading", { origin: "top" });
+      ScrollReveal().reveal(
+        ".home-img, .acmp-container, .portfolio-box, .contact form",
+        { origin: "bottom" }
+      );
+      ScrollReveal().reveal(".home-content h1 ,.about-img", { origin: "left" });
+      ScrollReveal().reveal(".home-content p ,.about-content", {
+        origin: "right",
+      });
 
-        const typed = new Typed('.multiple-text', {
-            strings: ["FrontEnd Developer", 'Backend Developer', 'Full Stack Developer'],
-            typeSpeed: 100,
-            backSpeed: 100,
-            backDelay: 1000,
-            loop: true
-        })
+      const typed = new Typed(".multiple-text", {
+        strings: [
+          "FrontEnd Developer",
+          "Backend Developer",
+          "Full Stack Developer",
+        ],
+        typeSpeed: 100,
+        backSpeed: 100,
+        backDelay: 1000,
+        loop: true,
+      });
 
-        let aboutDetails = document.querySelector('#about-details');
-        let readAbout = document.querySelector("#read-more")
-        readAbout.addEventListener('click', () => {
-            aboutDetails.classList.toggle('visible');
-            if (aboutDetails.classList.contains('visible')) {
-                readAbout.innerHTML = "Read less";
-            } else {
-                readAbout.innerHTML = "Read more";
-            }
-
-
-        });
-
-
+      let aboutDetails = document.querySelector("#about-details");
+      let readAbout = document.querySelector("#read-more");
+      readAbout.addEventListener("click", () => {
+        aboutDetails.classList.toggle("visible");
+        if (aboutDetails.classList.contains("visible")) {
+          readAbout.innerHTML = "Read less";
+        } else {
+          readAbout.innerHTML = "Read more";
+        }
+      });
     </script>
-
-
-</body>
-
+  </body>
 </html>
