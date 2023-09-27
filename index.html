@@ -660,7 +660,7 @@
             all type of device platforms.
           </p>
 
-          <a href="#" class="btn">Read More</a>
+          <a class="btn">Read More</a>
         </div>
         <div class="acmp-box">
           <i class="bx bx-code-alt"></i>
@@ -671,7 +671,7 @@
             Using postgreSQL database is created and joined the database to
             backend using jdbc driver.
           </p>
-          <a href="#" class="btn">Read More</a>
+          <a class="btn">Read More</a>
         </div>
         <div class="acmp-box">
           <i class="bx bx-code-alt"></i>
@@ -683,7 +683,7 @@
             MySQL to do CRUD operations in web page.
           </p>
 
-          <a href="#" class="btn">Read More</a>
+          <a class="btn">Read More</a>
         </div>
       </div>
     </section>
@@ -744,14 +744,14 @@
     <!-- contact -->
     <section class="contact" id="contact">
       <h2 class="heading">Contact <span>Me!</span></h2>
-      <form action="#">
+      <form action="">
         <div class="input-box">
-          <input type="text" placeholder="Full Name" />
-          <input type="email" placeholder="Email Address" />
+          <input type="text" placeholder="Full Name" required />
+          <input type="email" placeholder="Email Address" required />
         </div>
         <div class="input-box">
-          <input type="number" placeholder="Mobile Number" />
-          <input type="text" placeholder="Email Subject" />
+          <input type="number" placeholder="Mobile Number" required />
+          <input type="text" placeholder="Email Subject" required />
         </div>
         <textarea
           name=""
@@ -759,8 +759,14 @@
           cols="30"
           rows="10"
           placeholder="Your Message"
+          required
         ></textarea>
-        <input type="submit" value="Send Message" class="btn" />
+        <input
+          type="submit"
+          value="Send Message"
+          class="btn"
+          onclick="(e)=>{e.preventDefault}"
+        />
       </form>
     </section>
 
