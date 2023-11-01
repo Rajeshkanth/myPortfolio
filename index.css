@@ -129,15 +129,9 @@ span {
     font-size: 1.6rem;
 }
 
-.dwnld-btn {
-    display: flex;
-    flex-direction: column;
-}
 
-.dwnld-btn a {
-    margin-bottom: 2rem;
-    width: 35%;
-}
+
+
 
 .social-media a {
     display: inline-flex;
