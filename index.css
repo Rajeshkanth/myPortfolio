@@ -11,13 +11,15 @@
 
 :root {
     /* --bg-color: #1f242d; */
-    --bg-color: #00005c;
+    /* --bg-color: #00005c; */
+    --bg-color: #000000;
     /* --second-bg-color: #323946; */
-    --second-bg-color: #00008c;
+    --second-bg-color: #1a1a1a;
     --text-color: #fff;
     /* --main-color: #0ef; */
     --main-color: #3dec9a;
-    --main-color-2: #bf00ff;
+    /* --main-color-2: #bf00ff; */
+    --main-color-2: #1a1a1a;
 }
 
 html {
@@ -228,10 +230,15 @@ span {
     text-align: center;
     border: 0.2rem solid var(--bg-color);
     transition: 0.5s ease;
+    min-height: 33rem;
+}
+
+.acmp-box-container {
+    flex: 1 1 30rem;
 }
 
 .acmp-text {
-    text-align: justify;
+    text-align: start;
 }
 
 .acmp-container .acmp-box:hover {
@@ -339,6 +346,22 @@ span {
     color: var(--second-bg-color);
 }
 
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  padding: 2rem;
+}
+
+.contact-img {
+  width: 300px;
+  max-width: 100%;
+  animation: float 4s ease-in-out infinite;
+}
+
 .contact h2 {
     margin-bottom: 3rem;
 }
@@ -380,6 +403,29 @@ span {
     cursor: pointer;
 }
 
+.contact {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.contact-icons a {
+  font-size: 12.5rem;
+  color: var(--text-color);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.contact-icons a:hover {
+  color: var(--main-color);
+  transform: scale(1.2);
+}
+
 .footer {
     display: flex;
     justify-content: space-between;
@@ -419,6 +465,11 @@ span {
 
 #about-details.visible {
     display: block;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 @media (max-width: 1200px) {
