@@ -119,7 +119,6 @@ async function loadNowPlaying() {
     if (!data.isPlaying) {
       status.textContent = "Not playing anything right now";
       addClassList(equalizer, "is-hidden");
-
       // show card + button, hide iframe
       removeClassList(card, HIDDEN);
       addClassList(listenBtn, HIDDEN);
@@ -134,7 +133,7 @@ async function loadNowPlaying() {
     title.textContent = data.title;
     artist.textContent = data.artist;
     status.textContent = "Listening now";
-    removeClassList(equalizer, HIDDEN);
+    removeClassList(equalizer, "is-hidden");
 
     if (data.albumImageUrl) {
       cover.src = data.albumImageUrl;
@@ -148,7 +147,7 @@ async function loadNowPlaying() {
     } else {
       removeClassList(card, HIDDEN);
       removeClassList(listenBtn, HIDDEN);
-      addClassList(player, "is-hidden");
+      addClassList(player, HIDDEN);
     }
 
     if (data.trackId) {
