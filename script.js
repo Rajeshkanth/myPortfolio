@@ -118,7 +118,7 @@ async function loadNowPlaying() {
 
     if (!data.isPlaying) {
       status.textContent = "Not playing anything right now";
-      equalizer.classList.add("is-hidden");
+      addClassList(equalizer, "is-hidden");
 
       // show card + button, hide iframe
       removeClassList(card, HIDDEN);
@@ -148,7 +148,7 @@ async function loadNowPlaying() {
     } else {
       removeClassList(card, HIDDEN);
       removeClassList(listenBtn, HIDDEN);
-      addClassList(player, HIDDEN);
+      addClassList(player, "is-hidden");
     }
 
     if (data.trackId) {
