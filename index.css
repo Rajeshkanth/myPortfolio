@@ -16,6 +16,7 @@
     /* --second-bg-color: #323946; */
     --second-bg-color: #1a1a1a;
     --text-color: #fff;
+    --secondary-text-color: #1DB954;
     /* --main-color: #0ef; */
     --main-color: #3dec9a;
     /* --main-color-2: #bf00ff; */
@@ -109,6 +110,11 @@ section {
     }
 }
 
+.home-content {
+    min-width: 50vw;
+    width: 55vw;
+}
+
 .home-content h3 {
     font-size: 3.2rem;
     font-weight: 700;
@@ -173,6 +179,184 @@ span {
 .btn:hover {
     box-shadow: none;
 }
+
+.nps {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.now-playing-section{
+    color:#fff;
+    margin-top: 5rem;
+    width: auto;
+}
+
+.stop {
+    color: var(--secondary-text-color);
+    cursor: pointer;
+    font-size: small;
+    font-weight: 500;
+    margin: 0;
+    line-height: 0;
+}
+
+.spotify {
+    width: 50%;
+    margin: 3rem 1.5rem 3rem 0;
+    border: 1px solid var(--main-color);
+    padding: 2rem 2.8rem;
+    border-radius: 0.4rem;
+    border-left: 5rem solid var(--main-color);
+    font-size: 1.6rem;
+}
+
+.spotify-card {
+    width: 64%;
+    margin: 3rem 1.5rem 3rem 0;
+    padding: 2rem 2.8rem;
+    border-radius: 1.5rem;
+    /* font-size: 1.6rem; */
+    background-color: var(--second-bg-color);
+    border: 1px solid #272727;
+}
+
+.now-playing-card {
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:8px;border-radius:12px;
+    border:1px solid #222;
+    max-width:500px;
+}
+
+.np-card {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.np-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+    gap: 1rem;
+}
+
+.np-right-content {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.listen-btn {
+    background: none;
+    border: none;
+    color: #eef0ee;
+    font-weight: 200;
+    outline: none;
+    cursor: pointer;
+}
+
+.np-spotify-icon {
+  width: 18px;
+  height: 18px;
+  fill: #eef0ee;
+  flex-shrink: 0;
+}
+
+.np-eq {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    width: 120px;
+    height: 40px;
+}
+
+/* each bar */
+.np-eq span {
+    flex: 1;
+    height: 100%;
+    border-radius: 999px;
+    background: #1ed760;
+    box-shadow: 0 0 6px rgba(30, 215, 96, 0.7);
+    animation: np-eq 0.6s infinite ease-in-out;
+    transform-origin: bottom;
+    display: block;
+}
+
+.np-eq.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.np-eq.is-hidden span {
+    animation: none;
+    transform: scaleY(0.2);
+}
+
+/* slightly different timing for each bar */
+.np-eq span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.np-eq span:nth-child(2) {
+    animation-delay: 0.12s;
+}
+
+.np-eq span:nth-child(3) {
+    animation-delay: 0.24s;
+}
+
+.np-eq span:nth-child(4) {
+    animation-delay: 0.36s;
+}
+
+.np-eq span:nth-child(5) {
+    animation-delay: 0.18s;
+}
+
+.np-eq span:nth-child(6) {
+    animation-delay: 0.36s;
+}
+
+.np-eq span:nth-child(7) {
+    animation-delay: 0.24s;
+}
+
+.np-eq span:nth-child(8) {
+    animation-delay: 0.12s;
+}
+
+@keyframes np-eq {
+    0% {
+        transform: scaleY(0.3);
+    }
+
+    25% {
+        transform: scaleY(0);
+    }
+
+    50% {
+        transform: scaleY(0.4);
+    }
+
+    75% {
+        transform: scaleY(0.9);
+    }
+
+    100% {
+        transform: scaleY(0.3);
+    }
+}
+
+.hidden {
+  display: none !important;
+}
+
+
 
 .about {
     display: flex;
@@ -587,8 +771,16 @@ span {
 }
 
 @media (max-width: 365px) {
+    .home-content {
+        width: auto;
+    }
+
     .home-img img {
         width: 80vw;
+    }
+
+    .now-playing-card {
+        width: min-content;
     }
 
     .about-img img {

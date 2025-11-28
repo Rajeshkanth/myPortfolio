@@ -25,27 +25,81 @@
     </nav>
   </header>
 
+  <!-- BG -->
+  <div id="particles-background" class="vertical-centered-box"></div>
+  <div id="particles-foreground" class="vertical-centered-box"></div>
+
+  <div class="vertical-centered-box">
+    <div class="content">
+      <div class="loader-circle"></div>
+      <div class="loader-line-mask">
+        <div class="loader-line"></div>
+      </div>
+      <svg width="36px" height="24px" viewBox="0 0 36 24" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <path
+          d="M8.98885921,23.8523026 C8.8942483,23.9435442 8.76801031,24 8.62933774,24 L2.03198365,24 C1.73814918,24 1.5,23.7482301 1.5,23.4380086 C1.5,23.2831829 1.55946972,23.1428989 1.65570253,23.0416777 L13.2166154,12.4291351 C13.3325814,12.3262031 13.4061076,12.1719477 13.4061076,11.999444 C13.4061076,11.8363496 13.3401502,11.6897927 13.2352673,11.587431 L1.68841087,0.990000249 C1.57298556,0.88706828 1.5,0.733668282 1.5,0.561734827 C1.5,0.251798399 1.73814918,2.85130108e-05 2.03198365,2.85130108e-05 L8.62933774,2.85130108e-05 C8.76855094,2.85130108e-05 8.89532956,0.0561991444 8.98994048,0.148296169 L21.4358709,11.5757407 C21.548593,11.6783875 21.6196864,11.8297916 21.6196864,11.999444 C21.6196864,12.1693815 21.5483227,12.3219261 21.4350599,12.4251432 L8.98885921,23.8523026 Z M26.5774333,23.8384453 L20.1765996,17.9616286 C20.060093,17.8578413 19.9865669,17.703871 19.9865669,17.5310822 C19.9865669,17.3859509 20.0390083,17.2536506 20.1246988,17.153855 L23.4190508,14.1291948 C23.5163648,14.0165684 23.6569296,13.945571 23.8131728,13.945571 C23.9602252,13.945571 24.0929508,14.0082997 24.1894539,14.1092357 L33.861933,22.9913237 C33.9892522,23.0939706 34.0714286,23.2559245 34.0714286,23.4381226 C34.0714286,23.748059 33.8332794,23.9998289 33.5394449,23.9998289 L26.9504707,23.9998289 C26.8053105,23.9998289 26.6733958,23.9382408 26.5774333,23.8384453 Z M26.5774333,0.161098511 C26.6733958,0.0615881034 26.8053105,0 26.9504707,0 L33.5394449,0 C33.8332794,0 34.0714286,0.251769886 34.0714286,0.561706314 C34.0714286,0.743904453 33.9892522,0.905573224 33.861933,1.00822006 L24.1894539,9.89030807 C24.0929508,9.99152926 23.9602252,10.0542579 23.8131728,10.0542579 C23.6569296,10.0542579 23.5163648,9.98354562 23.4190508,9.87063409 L20.1246988,6.8459739 C20.0390083,6.74617837 19.9865669,6.613878 19.9865669,6.46874677 C19.9865669,6.29624305 20.060093,6.14198767 20.1765996,6.03848544 L26.5774333,0.161098511 Z"
+          fill="#FFFFFF"></path>
+      </svg>
+    </div>
+  </div>
+
   <section class="home" id="home">
     <div class="home-content">
       <h3>Hello, It's Me</h3>
       <h1>Rajeshkanth</h1>
       <h3>And I'm a <span class="multiple-text"></span></h3>
-      <p>
-        I'm a Full Stack Developer skilled in React.js, Next.js, Spring Boot, and Node.js,
-        with a strong foundation in JavaScript, TypeScript, and modern web development practices.
-        I work across the entire stack—building seamless frontend experiences,
-        powerful backend services, and managing data with MySQL, PostgreSQL, and MongoDB.
-      </p>
+
+      
       <div class="social-media">
         <a href="#" class="bx bxl-github" onclick="window.open('https://github.com/Rajeshkanth')"></a>
         <a href="#" class="bx bxl-linkedin" onclick="window.open('https://linkedin.com/in/rajeshkanth4051')"></a>
       </div>
       <a href="" class="btn"
-        onclick="window.open('https://github.com/Rajeshkanth/myPortfolio/releases/download/latest/Rajeshkanth.2.pdf')">View
-        CV</a>
-      <!-- <div class="spotify">
-        under development
-      </div> -->
+      onclick="window.open('https://github.com/Rajeshkanth/myPortfolio/releases/download/latest/Rajeshkanth.2.pdf')">View
+      CV</a>
+
+
+      <div id="now-playing-section" class="now-playing-section">
+        <div class="nps">
+          <h2>Now Playing on Spotify 🎧</h2>
+          <div id="stop" class="stop hidden">Stop Listening</div>
+        </div>
+  
+        <div id="now-playing-card" class="now-playing-card">
+  
+          <img id="np-cover" src="" alt=""
+            style="width:80px;height:80px;object-fit:cover;border-radius:8px;display:none;">
+          <div id="np-container" style="flex:1;">
+            <div id="np-title" style="color:#ffffff;font-weight:600;font-size: 16px;"></div>
+            <div id="np-artist" style="color:#f9b99a;font-size:10px;margin-top:4px;"></div>
+            <div id="np-status" style="color:#1DB954;font-size:12px;margin-top:4px;"></div>
+          </div>
+  
+          <div class="np-right">
+            <div class="np-right-content">
+              <button id="listenBtn" class="listen-btn">Wanna listen?</button>
+              <svg class="np-spotify-icon" viewBox="0 0 16 16" aria-hidden="true" role="img">
+                <path
+                  d="M8.319.006A8.003 8.003 0 0 0 .006 7.683a8 8 0 0 0 7.677 8.31A8 8 0 0 0 8.319.006m3.377 11.72a.48.48 0 0 1-.652.179 9.6 9.6 0 0 0-3.426-1.165 9.6 9.6 0 0 0-3.613.176.479.479 0 0 1-.226-.93c1.3-.316 2.637-.38 3.972-.193 1.336.188 2.602.62 3.765 1.28.228.13.309.422.178.652zm1.05-2.1a.62.62 0 0 1-.841.25A11.8 11.8 0 0 0 7.923 8.57a11.8 11.8 0 0 0-4.188.158.62.62 0 0 1-.74-.473.62.62 0 0 1 .473-.739 13 13 0 0 1 4.626-.176c1.552.217 3.031.704 4.4 1.444a.62.62 0 0 1 .25.842h.003Zm1.166-2.367a.765.765 0 0 1-1.031.326 14.3 14.3 0 0 0-4.612-1.473 14.3 14.3 0 0 0-4.84.145.764.764 0 1 1-.303-1.499 15.8 15.8 0 0 1 5.356-.16c1.791.252 3.51.8 5.104 1.63.374.194.52.656.326 1.03Z" />
+              </svg>
+            </div>
+            <div class="np-eq" id="np-eq">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+  
+        </div>
+  
+        <div id="np-player" style="margin-top:12px;max-width:500px;"></div>
+      </div>
     </div>
     <div class="home-img">
       <img src="./images/latest2.jpeg" alt="" />
@@ -222,30 +276,6 @@
   <!-- contact -->
   <section class="contact" id="contact">
     <h2 class="heading">Contact <span>Me!</span></h2>
-    <!-- <form action="">
-        <div class="input-box">
-          <input type="text" placeholder="Full Name" required />
-          <input type="email" placeholder="Email Address" required />
-        </div>
-        <div class="input-box">
-          <input type="number" placeholder="Mobile Number" required />
-          <input type="text" placeholder="Email Subject" required />
-        </div>
-        <textarea
-          name=""
-          id=""
-          cols="30"
-          rows="10"
-          placeholder="Your Message"
-          required
-        ></textarea>
-        <input
-          type="submit"
-          value="Send Message"
-          class="btn"
-          onclick="(e)=>{e.preventDefault}"
-        />
-      </form> -->
     <div class="contact-right">
       <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_puciaact.json" background="transparent"
         speed="1" style="width: 320px; height: 320px;" loop autoplay hover>
@@ -286,6 +316,7 @@
   <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script src="https://unpkg.com/node-vibrant@3.1.0/dist/vibrant.min.js"></script>
   <script src=" ./script.js"></script>
 </body>
 
