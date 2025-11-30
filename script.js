@@ -239,3 +239,40 @@ window.addEventListener("load", () => {
     removeClassList(stopBtn, HIDDEN);
   }
 });
+
+
+// analytics 
+
+document.querySelectorAll(".social-media a").forEach(link => {
+  link.addEventListener("click", () => {
+    const platform = link.className || link.href;
+    gtag("event", "social_click", {
+      platform: platform
+    });
+  });
+});
+
+document.querySelectorAll(".portfolio-box").forEach((card, index) => {
+  card.addEventListener("click", () => {
+    const title = card.querySelector("h4")?.innerText || `project-${index+1}`;
+
+    gtag("event", "project_click", {
+      project_name: title
+    });
+  });
+});
+
+let fired = false;
+window.addEventListener("scroll", () => {
+  const sec = document.getElementById("portfolio");
+  if (!sec) return;
+
+  if (!fired && sec.getBoundingClientRect().top < window.innerHeight) {
+    fired = true;
+    gtag("event", "section_view", { section: "portfolio" });
+  }
+});
+
+document.getElementById("cv-btn")?.addEventListener("click", () => {
+  gtag("event", "cv downloaded");
+});
