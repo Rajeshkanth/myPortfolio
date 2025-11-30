@@ -451,10 +451,20 @@ span {
 
 .portfolio-box img {
     width: 25vw;
-    height: 65vh;
+    height: 45vh;
 }
 
 .portfolio h2 {
+    margin-bottom: 4rem;
+}
+
+.portfolio .project-desc {
+    font-size:2rem;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
     margin-bottom: 4rem;
 }
 
@@ -528,6 +538,32 @@ span {
 .portfolio-layer a i {
     font-size: 2rem;
     color: var(--second-bg-color);
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.tech-stack span {
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--secondary-text-color);
+  border: 1px solid rgba(29, 185, 84, 0.4);
+  backdrop-filter: blur(4px);
+  transition: all 0.25s ease;
+  cursor: default;
+}
+
+.tech-stack span:hover {
+  background: var(--secondary-text-color);
+  color: #000;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(29, 185, 84, 0.4);
 }
 
 .contact-right {
@@ -761,6 +797,10 @@ span {
 
     .portfolio-container {
         grid-template-columns: 1fr;
+    }
+
+    .portfolio-container .portfolio-box {
+        width: auto;
     }
 }
 
